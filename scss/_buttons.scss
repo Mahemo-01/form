@@ -1,0 +1,24 @@
+%btn{
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+
+  &:hover{
+    cursor: pointer;
+    box-shadow: var(--btn-shadow);
+  }
+  &:active{
+    box-shadow: var(--btn-shadow) inset;
+  }
+}
+
+.btn-white{
+  @extend %btn;
+  background-color: var(--card-color);
+}
+
+.btn-blue{
+  @extend %btn;
+  background-color: var(--blue-color);
+  filter: brightness(110%);
+}
