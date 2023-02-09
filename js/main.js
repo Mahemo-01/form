@@ -10,9 +10,10 @@ gradientWheel.addEventListener('click', showOtherGradients)
 window.addEventListener("load", bodyloaded)
 
 let gradients = ['linear-gradient(rgb(208, 15, 36) 0%, rgb(56, 62, 204) 140%)', 'linear-gradient(rgb(47, 216, 86) 0%, rgb(56, 62, 204) 140%)', 'linear-gradient(rgb(7, 255, 201) 0%, rgb(40, 44, 156) 140%)', 'linear-gradient(rgb(247, 128, 116) 0%, rgb(56, 62, 204) 140%)']
+// let gradients = ['#d00f24, #383ecc', '#2fd856, #383ecc', '#07ffc9, #282c9c', '#f78074, #383ecc']
 
 function bodyloaded() {
-  changeBtnTxtToBg()
+  // changeBtnTxtToBg()
 
   if (localStorage.getItem('localGradient') === null && localStorage.getItem('localGradientTwo') === null) {
     cardForm.children[0].style.background = 'linear-gradient(rgb(247, 128, 116) 0%, rgb(56, 62, 204) 140%)'
@@ -178,20 +179,20 @@ function colorShade(col, amt) {
   return `#${rr}${gg}${bb}`
 }
 
-function changeBtnTxtToBg() {
-  let submit = document.querySelectorAll('.btn')[0]
-  let submitBg = submit.classList.value.split(' ').filter(c => {
-    return c.split('-')[0] == 'btn'
-  })
-  let bgColor = submitBg[0].split('-')[1]
+// function changeBtnTxtToBg() {
+//   let submit = document.querySelectorAll('.btn')[0]
+//   let submitBg = submit.classList.value.split(' ').filter(c => {
+//     return c.split('-')[0] == 'btn'
+//   })
+//   let bgColor = submitBg[0].split('-')[1]
 
-  let rootColor = getComputedStyle(body).getPropertyValue(`--${bgColor}-color`).trim();
+//   let rootColor = getComputedStyle(body).getPropertyValue(`--${bgColor}-color`).trim();
 
-  let rootLightColor = hexToHsl(rootColor).split(' ')[2].split('%')[0]
-  let switchLight = (rootLightColor - 70) * -1.5;
-  let newColor = `hsl(0, 0%, ${switchLight}%)`
-  submit.style.color = newColor
-}
+//   let rootLightColor = hexToHsl(rootColor).split(' ')[2].split('%')[0]
+//   let switchLight = (rootLightColor - 70) * -1.5;
+//   let newColor = `hsl(0, 0%, ${switchLight}%)`
+//   submit.style.color = newColor
+// }
 
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
   darkMode.setAttribute('checked', true)
@@ -205,5 +206,5 @@ function changeToDarkMode() {
   document.body.classList.toggle('is-light-mode')
   document.body.classList.toggle('is-dark-mode')
   darkMode.classList.toggle('active')
-  changeBtnTxtToBg()
+  // changeBtnTxtToBg()
 }

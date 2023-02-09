@@ -10,12 +10,12 @@
   --purplue-color:  #383ecc;
   --blue-color:     #007bff;
   --green-color:    #28a745;
-
+  
   --card-color:     #ffffff;
-
+  
   // box-shadow //
-  --default-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  --btn-shadow:     0 3px 4px rgba(0,0,0,0.6);
+  --default-shadow: 0 3px 6px #00000033;
+  --btn-shadow:     0 3px 4px #00000099;
 }
 
 .is-light-mode{
@@ -23,6 +23,7 @@
 }
 
 .is-dark-mode{
+  --dark-color:     #ffffff;
   --light-color:    #2b343a;
   --card-color:     #2f3338;
   // --white-color:    #ffffff;

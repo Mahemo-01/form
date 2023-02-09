@@ -5,6 +5,7 @@
 body{
   height: 100vh;
   background-color: var(--light-color);
+  // background: linear-gradient(#d00f24 0%, #383ecc 140%);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -149,3 +150,87 @@ body{
     }
   }
 }
+
+
+@function isColorDark($color ) {
+  // Parse RGB by isolating each color
+  $red: red($color );
+  $green: green($color );
+  $blue: blue($color );
+  // Compute the perceptive luminance, keeping
+  // in mind that the human eye favors green.
+  $l: 1 - (0.299 * $red + 0.587 * $green + 0.114 * $blue ) / 255;
+
+  /* arguably this should be 0.50, but testing out various colors, this seemed to be the best so far. */
+  @if ($l < 0.41) {
+    // if the luminance is less than 0.5 return black
+    @return #000000;
+  }
+
+  @else {
+    // if the luminance is more than 0.5 return white
+    @return #ffffff;
+  }
+}
+
+// //colors
+// $purple: #6741a7;
+// $lightGreen: #90EE90;
+// $yellow: #ffd800;
+// $brandColor1: #ff7e00;
+// $brandColor2: #2359d5;
+// $grey: #333;
+
+// %basefoo {
+//   display: flex;
+//   height: 200px;
+//   width: 200px;
+//   text-align: center;
+//   margin: auto;
+//   align-items: center;
+//   justify-content: center;
+//   flex: 1;
+//   flex-basis: 15%;
+// }
+
+// .container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   flex-direction: row;
+// }
+
+// .foo {
+//   @extend %basefoo;
+//   color: isColorDark($purple);
+//   background: $purple;
+// }
+
+// .foo1 {
+//   @extend %basefoo;
+//   color: isColorDark($brandColor2);
+//   background: $brandColor2;
+// }
+
+// .foo2 {
+//   @extend %basefoo;
+//   color: isColorDark($lightGreen);
+//   background: $lightGreen;
+// }
+
+// .foo3 {
+//   @extend %basefoo;
+//   color: isColorDark($grey);
+//   background: $grey;
+// }
+
+// .foo4 {
+//   @extend %basefoo;
+//   color: isColorDark($yellow);
+//   background: $yellow;
+// }
+
+// .explain {
+//   flex-basis: 600px;
+//   text-align: center;
+//   margin: auto;
+// }
